@@ -12,10 +12,17 @@ def home():
 
 @app.route("/progress/<socketid>", methods = ["POST"])
 async def progress(socketid):
-    for x in range(1,6):
-        socketio.emit("update progress", x * 20, to=socketid)
-        await sleep(2)
+    
+    for x in range(0,6):
+        socketio.emit("update progress", x * 20, to=socketid) 
+        await sleep(1)    
+
     return Response(status=204)
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 
 
 if __name__ == "__main__":
