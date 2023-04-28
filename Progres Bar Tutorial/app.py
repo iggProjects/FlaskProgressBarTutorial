@@ -14,7 +14,26 @@ def home():
 
 @app.route("/progress/<socketid>", methods = ["POST"])
 async def progress(socketid):
-    
+
+    import subprocess, json
+    """
+    # execute subprocess with script
+    continue_loop = True
+    text = ""
+    x = 0
+    while continue_loop:    
+        text = subprocess.run(["cmd", "/c", "python.exe", "py_script.py"],capture_output=True)
+        while text == "":
+            print(f"Text: {text}\n")
+            socketio.emit("update progress", x * 20, to=socketid)
+            await sleep(1)   
+            if x <101:
+                x = x + 20
+            else:
+                x = 0
+        continue_loop = False
+    """             
+
     for x in range(0,6):
         socketio.emit("update progress", x * 20, to=socketid) 
         await sleep(1)    
