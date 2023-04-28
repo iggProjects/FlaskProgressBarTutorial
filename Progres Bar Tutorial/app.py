@@ -1,4 +1,6 @@
 # https://github.com/MyPingO/FlaskProgressBarTutorial (fork)
+# progress bar JS example 
+#    - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_progressbar_3
 
 from asyncio import sleep
 from website import create_app
@@ -44,6 +46,9 @@ async def progress(socketid):
 def about():
     return render_template("about.html")
 
+@app.route("/pbExample")
+def pbExample():
+    return render_template("pbExample.html")
 
 
 if __name__ == "__main__":
